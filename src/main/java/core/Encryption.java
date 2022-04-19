@@ -48,9 +48,9 @@ class Encryption
 		    //Check if message is greater than n or smaller than n (if greater than n then break into smaller parts)
             if( padMsg < n )
         		{
-            	    System.out.println("\nPADDED MESSAGE < N ");
+            	    //System.out.println("\nPADDED MESSAGE < N ");
         			c= (long) (Math.pow(padMsg,2)%n);
-        			System.out.println("Encrypted message is " + c);
+        			System.out.println("ENCRYPTED message = " + c);
         			finalMessage.add(c);
         			break_size = binArrayM.size(); //-3 because we already aded it on decryption side so it would work for both Message break and non break
         		}

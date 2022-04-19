@@ -38,20 +38,28 @@ public class Main
 		String msg = scan.next();
 
 		List<Integer> msgAsListOfNumbers = getNumbers(msg);
-
 		List<Integer> decryptedMsg = new ArrayList<>();
+
+		List<Long> encryptedList = new ArrayList<>();
 		for (Integer i: msgAsListOfNumbers) {
 			System.out.println("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
 			Encryption e = new Encryption();
 			ArrayList<Long> cipher = e.Encrypt(i, n);
+
+			//if no break messages - ok
+			encryptedList.add(cipher.get(0));
+
 			Decryption decry = new Decryption();
 			decry.setValues(p, q, n, e.getBreakSize());
 			decryptedMsg.add(decry.Decrypt(cipher) / 2);
 		}
+
 		System.out.println("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
 		System.out.println("Input msg = " + msg);
 		System.out.println("Input list =  " + msgAsListOfNumbers);
+		System.out.println("Encrypted list = " + encryptedList);
 		System.out.println("Output list = " + decryptedMsg);
+		System.out.println("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
 
    }
 

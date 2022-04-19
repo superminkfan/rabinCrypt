@@ -69,7 +69,6 @@ class Decryption
       			 }
             	if(check[j].size()<=breaksize+3)
             	  {
-            	    correct = -1;
             	    correct = check[j].get(0) + check[j].get(1) +check[j].get(2);
             	    if(correct == 0)
             	       {
