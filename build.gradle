@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+}
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'gradleFirst',
+                'Implementation-Version': version,
+                'Main-Class': 'core.Main'
+    }
+    //  setBaseName("bot")
+    baseName = 'rabinCrypt'
+//    from { configurations.collect { it.isDirectory() ? it : zipTree(it) } }
+//    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }}
+    with jar
+}
+
+test {
+    useJUnitPlatform()
+}
