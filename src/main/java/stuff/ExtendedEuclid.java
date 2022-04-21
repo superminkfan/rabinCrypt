@@ -23,7 +23,7 @@ public class ExtendedEuclid
 	            y = prevy - q * y;
 	            prevy = temp;            
 	        }
-//	        System.out.println("Roots  x : "+ prevx +" y :"+ prevy);
+	        System.out.println("Roots  a : "+ prevx +" b :"+ prevy);
 	        res_x = prevx;
 	        res_y = prevy;
 	        

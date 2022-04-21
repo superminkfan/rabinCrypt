@@ -31,7 +31,7 @@ public class Main
 
 		n = p * q;
 
-		System.out.println("Prime P = "+p+"\n\nPrime Q = "+q+"\n\nn = P X Q = "+n);
+		System.out.println("Prime P = "+p+"\nPrime Q = "+q+"\nn = P X Q = "+n);
 		System.out.println("Please Enter Your Message : ");
 		String msg = scan.next();
 

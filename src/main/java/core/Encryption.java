@@ -48,7 +48,7 @@ class Encryption
 		    //Check if message is greater than n or smaller than n (if greater than n then break into smaller parts)
             if( padMsg < n )
         		{
-            	    //System.out.println("\nPADDED MESSAGE < N ");
+            	    System.out.println("PADDED MESSAGE < N ");
         			c= (long) (Math.pow(padMsg,2)%n);
         			System.out.println("ENCRYPTED message = " + c);
         			finalMessage.add(c);

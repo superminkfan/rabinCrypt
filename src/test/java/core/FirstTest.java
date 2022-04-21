@@ -1,85 +1,93 @@
 package core;
 
+import stuff.ExtendedEuclid;
+import stuff.RandomPrime;
+
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 public class FirstTest {
     public static void main(String[] args) throws UnsupportedEncodingException {
-        long n=0,p=3,q=11;
+        int p= 3,q = 11,n;
+        long a, b;
+        Scanner scan = new Scanner(System.in);
 
-        n = p * q;//33
+        n = p * q;
 
-        //String str = "zikunov";
-        String str = "severinenko";
-        System.out.println();
+        System.out.println("Prime P = "+p+"\nPrime Q = "+q+"\nn = P X Q = "+n);
+        System.out.println("Please Enter Your Message : ");
+        String str = scan.next();
 
+        n = p * q;
 
-        System.out.println(getNumbers(str));
+        System.out.println("Msg as list = " + Utils.getNumbers(str));
 
         List<Integer> encryptedList = new ArrayList<>();
-        for (Integer i: getNumbers(str))
+        for (Integer i: Utils.getNumbers(str))
         {
-            encryptedList.add((int) modPow(i,2,n));
+            encryptedList.add(Utils.modPow(i,2,n));
         }
-        System.out.println(encryptedList);
+        System.out.println("Encrypted list = " + encryptedList);
+        int size = encryptedList.size();
 
 
-    }
-    private static long modPow(int a, long d, long n)
-    {
-        //  output = a^d mod n
-        long res = 1;
-        for(int i=0;i<d;i++)
+        ExtendedEuclid euclid = new ExtendedEuclid();
+        euclid.compute(p, q);
+        a = euclid.getx();
+        b = euclid.gety();
+
+
+        List<Integer> rList = new ArrayList<>();
+        for (Integer i: encryptedList)
         {
-            res= res* a;
-            res = res%n;
+            rList.add(Utils.modPow(i, (p+1)/4, p));
         }
-        return res % n;
+        System.out.println("r = " + rList);
+
+        List<Integer> sList = new ArrayList<>();
+        for (Integer i: encryptedList)
+        {
+            sList.add(Utils.modPow(i, (q+1)/4, q));
+        }
+        System.out.println("s = " + sList);
+
+        List<Integer> x1List = new ArrayList<>();
+        for (int i = 0; i < size; i++)
+        {
+            x1List.add(((int)a * p * sList.get(i) + (int)b * q * rList.get(i)) % n);
+        }
+        System.out.println("x1 = " + x1List);
+
+        List<Integer> x2List = new ArrayList<>();
+        for (Integer i: x1List)
+        {
+            x2List.add(n - i);
+        }
+
+        System.out.println("x2 = " + x2List);
+
+        List<Integer> y1List = new ArrayList<>();
+        for (int i = 0; i < size; i++)
+        {
+            y1List.add(((int)a * p * sList.get(i) - (int)b * q * rList.get(i)) % n);
+        }
+        System.out.println("y1 = " + y1List);
+
+        List<Integer> y2List = new ArrayList<>();
+        for (Integer i: y1List)
+        {
+            y2List.add(n - i);
+        }
+
+        System.out.println("y2 = " + y2List);
+
+
+        System.out.println(Utils.getMsg(x1List));
+        System.out.println(Utils.getMsg(x2List));
+        System.out.println(Utils.getMsg(y1List));
+        System.out.println(Utils.getMsg(y2List));
+
+
     }
-    private static List<Integer> getNumbers(String str)
-    {
-         char[] wat = str.toCharArray();
-         HashMap<String, Integer> hashMap = getMap();
-         List<Integer> list = new ArrayList<>();
 
-         for (char c:wat)
-         {
-            list.add(hashMap.get(String.valueOf(c)));
-         }
-
-         return list;
-    }
-
-
-    private static HashMap<String, Integer> getMap()
-    {
-        HashMap<String, Integer> hashMap = new HashMap();
-        hashMap.put("a", 1);
-        hashMap.put("b", 2);
-        hashMap.put("c", 3);
-        hashMap.put("d", 4);
-        hashMap.put("e", 5);
-        hashMap.put("f", 6);
-        hashMap.put("g", 7);
-        hashMap.put("h", 8);
-        hashMap.put("i", 9);
-        hashMap.put("j", 10);
-        hashMap.put("k", 11);
-        hashMap.put("l", 12);
-        hashMap.put("m", 13);
-        hashMap.put("n", 14);
-        hashMap.put("o", 15);
-        hashMap.put("p", 16);
-        hashMap.put("q", 17);
-        hashMap.put("r", 18);
-        hashMap.put("s", 19);
-        hashMap.put("t", 20);
-        hashMap.put("u", 21);
-        hashMap.put("v", 22);
-        hashMap.put("w", 23);
-        hashMap.put("x", 24);
-        hashMap.put("y", 25);
-        hashMap.put("z", 26);
-        return hashMap;
-    }
 }

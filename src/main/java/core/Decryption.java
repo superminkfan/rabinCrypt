@@ -109,8 +109,7 @@ class Decryption
     }
 	
 	
-	//Generate message from the Broken Pieces
-	
+
 	public long modPow(long a, long d, long n)
 	{
 		//  output = a^d mod n
@@ -144,7 +143,7 @@ class Decryption
 			 message.addAll(temp);
 
 		}
-		//System.out.println("Message : " + message);
+		System.out.println("Message : " + message);
 		System.out.println("Message = " + (int)decimal1.getDecimal(message));
 		return (int) decimal1.getDecimal(message);
 
