@@ -88,10 +88,13 @@ public class RandomPrime
 		   
 		   return result;
 		}
-		
+
+	   /**
+		*
+		* @return  a^d mod n
+		*/
 		public long modPow(long a, long d, long n)
 		{
-			//  output = a^d mod n
 			long res = 1;
 			for(int i=0;i<d;i++)
 			{

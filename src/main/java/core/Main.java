@@ -1,11 +1,9 @@
 package core;
 
 import stuff.RandomPrime;
+import stuff.Utils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Main
@@ -37,10 +35,10 @@ public class Main
 		System.out.println("Please Enter Your Message : ");
 		String msg = scan.next();
 
-		List<Integer> msgAsListOfNumbers = getNumbers(msg);
+		List<Integer> msgAsListOfNumbers = Utils.getNumbers(msg);
 		List<Integer> decryptedMsg = new ArrayList<>();
-
 		List<Long> encryptedList = new ArrayList<>();
+
 		for (Integer i: msgAsListOfNumbers) {
 			System.out.println("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
 			Encryption e = new Encryption();
@@ -59,32 +57,9 @@ public class Main
 		System.out.println("Input list =  " + msgAsListOfNumbers);
 		System.out.println("Encrypted list = " + encryptedList);
 		System.out.println("Output list = " + decryptedMsg);
+		System.out.println("Decrypted msg = " + Utils.getMsg(decryptedMsg));
 		System.out.println("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
 
    }
-
-	private static List<Integer> getNumbers(String str)
-	{
-		int[] numbers = new int[str.length()];
-		for (int i = 1; i <= str.length(); i++)
-		{
-			int min = Integer.MAX_VALUE;
-			int indexOfMin = 0;
-			for (int j = 0; j < str.length(); j++)
-			{
-				if (numbers[j] == 0)
-				{
-					int c = (int)str.charAt(j);
-					if (c < min)
-					{
-						min = c;
-						indexOfMin = j;
-					}
-				}
-			}
-			numbers[indexOfMin] = i;
-		}
-		return Arrays.stream(numbers).boxed().toList();
-	}
 
 }
