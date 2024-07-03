@@ -1,7 +1,6 @@
-package core;
+package core.old;
 
 import stuff.ExtendedEuclid;
-import stuff.RandomPrime;
 
 import java.io.UnsupportedEncodingException;
 import java.util.*;

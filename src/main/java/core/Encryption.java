@@ -6,6 +6,10 @@ import stuff.DecimalGenerator;
 import java.lang.*;
 import java.util.ArrayList;
 
+/**
+ * This class contains methods for encryption and decryption of messages.
+ * It uses modular exponentiation to encrypt and decrypt messages.
+ */
 class Encryption
 {
 
@@ -13,12 +17,23 @@ class Encryption
 	long break_size;
 	long n_size;
     long m_size;
-    
+
+
 	ArrayList<Integer> binArrayM;
 	ArrayList<Integer> binArrayN;
 	ArrayList<ArrayList<Integer>> BrokenMessage = new ArrayList<ArrayList<Integer>>();
 	ArrayList<Long> finalMessage = new ArrayList<Long>();
-	
+
+	/**
+	 * This method encrypts a message using modular exponentiation.
+	 * It first converts the message to binary, then pads it with zeros if necessary.
+	 * If the padded message is greater than n, it breaks the message into smaller parts and pads each part.
+	 * It then encrypts each part using modular exponentiation and adds the encrypted parts to the final message.
+	 *
+	 * @param msg the message to encrypt
+	 * @param n the modulus
+	 * @return the encrypted message
+	 */
 	ArrayList<Long> Encrypt(long msg, long n)
 	{
 			BinaryGenerator binary= new BinaryGenerator();
@@ -117,6 +132,12 @@ class Encryption
 
 	}
 
+	/**
+	 * This method reverses an ArrayList.
+	 *
+	 * @param list the ArrayList to reverse
+	 * @return the reversed ArrayList
+	 */
    public static <T> ArrayList<T> reverse(ArrayList<T> list) 
      {
           int length = list.size();
@@ -128,6 +149,12 @@ class Encryption
              }
           return result;
      }
+
+	/**
+	 * This method returns the break size.
+	 *
+	 * @return the break size
+	 */
    long getBreakSize()
    {
 	   return break_size ;

@@ -5,11 +5,17 @@ import stuff.Utils;
 
 import java.util.*;
 
-
+/**
+ * Main class for the program.
+ */
 public class Main
 {
-    
-	public static void main(String[] args) 
+    /**
+     * The main method where the program execution starts.
+     *
+     * @param args command line arguments
+     */
+    public static void main(String[] args)
 	{
 		Scanner scan = new Scanner(System.in);
 
@@ -18,11 +24,17 @@ public class Main
 
 		long n=0,p=0,q=0;
 
+		/**
+		 * Loop until p and q are both odd primes.
+		 */
 		while(p%4!=3 || q%4!=3)
 		{
 		      p = prime1.generatePrime();
 		      q = prime2.generatePrime();
 
+		      /**
+		       * If p and q are the same, generate a new q.
+		       */
 		      while(p==q )
 		        {
 			        q = prime2.generatePrime();
@@ -39,8 +51,14 @@ public class Main
 		List<Integer> decryptedMsg = new ArrayList<>();
 		List<Long> encryptedList = new ArrayList<>();
 
+		/**
+		 * Loop through each character in the message.
+		 */
 		for (Integer i: msgAsListOfNumbers) {
 			System.out.println("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
+			/**
+			 * Create a new Encryption object and encrypt the character.
+			 */
 			Encryption e = new Encryption();
 			ArrayList<Long> cipher = e.Encrypt(i, n);
 
