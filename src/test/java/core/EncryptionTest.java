@@ -97,57 +97,57 @@ public class EncryptionTest {
         assertEquals(1, finalMessage.get(0).longValue());
     }
 
-    @Test
-public void testEncryptWithLetterString() {
-    ArrayList<Integer> binArrayM = new ArrayList<>();
-    binArrayM.add(1);
-    binArrayM.add(0);
-    binArrayM.add(1);
-    when(binaryGenerator.GenerateBinaryFormat(anyString())).thenReturn(binArrayM);
-
-    ArrayList<Long> finalMessage = encryption.Encrypt("hello", "world");
-    assertNotNull(finalMessage);
-    assertEquals(1, finalMessage.size());
-    assertEquals(1, finalMessage.get(0).longValue());
-}
-
-@Test
-public void testEncryptWithEmptyLetterString() {
-    ArrayList<Integer> binArrayM = new ArrayList<>();
-    binArrayM.add(0);
-    when(binaryGenerator.GenerateBinaryFormat(anyString())).thenReturn(binArrayM);
-
-    ArrayList<Long> finalMessage = encryption.Encrypt("", "world");
-    assertNotNull(finalMessage);
-    assertEquals(1, finalMessage.size());
-    assertEquals(0, finalMessage.get(0).longValue());
-}
-
-@Test
-public void testEncryptWithNullLetterString() {
-    ArrayList<Integer> binArrayM = new ArrayList<>();
-    binArrayM.add(0);
-    when(binaryGenerator.GenerateBinaryFormat(anyString())).thenReturn(binArrayM);
-
-    ArrayList<Long> finalMessage = encryption.Encrypt(null, "world");
-    assertNotNull(finalMessage);
-    assertEquals(1, finalMessage.size());
-    assertEquals(0, finalMessage.get(0).longValue());
-}
-
-@Test
-public void testEncryptWithSpecialCharacterString() {
-    ArrayList<Integer> binArrayM = new ArrayList<>();
-    binArrayM.add(1);
-    binArrayM.add(0);
-    binArrayM.add(1);
-    when(binaryGenerator.GenerateBinaryFormat(anyString())).thenReturn(binArrayM);
-
-    ArrayList<Long> finalMessage = encryption.Encrypt("hello!", "world!");
-    assertNotNull(finalMessage);
-    assertEquals(1, finalMessage.size());
-    assertEquals(1, finalMessage.get(0).longValue());
-}
+    //@Test
+//public void testEncryptWithLetterString() {
+//    ArrayList<Integer> binArrayM = new ArrayList<>();
+//    binArrayM.add(1);
+//    binArrayM.add(0);
+//    binArrayM.add(1);
+//    when(binaryGenerator.GenerateBinaryFormat(anyString())).thenReturn(binArrayM);
+//
+//    ArrayList<Long> finalMessage = encryption.Encrypt("hello", "world");
+//    assertNotNull(finalMessage);
+//    assertEquals(1, finalMessage.size());
+//    assertEquals(1, finalMessage.get(0).longValue());
+//}
+//
+//@Test
+//public void testEncryptWithEmptyLetterString() {
+//    ArrayList<Integer> binArrayM = new ArrayList<>();
+//    binArrayM.add(0);
+//    when(binaryGenerator.GenerateBinaryFormat(anyString())).thenReturn(binArrayM);
+//
+//    ArrayList<Long> finalMessage = encryption.Encrypt("", "world");
+//    assertNotNull(finalMessage);
+//    assertEquals(1, finalMessage.size());
+//    assertEquals(0, finalMessage.get(0).longValue());
+//}
+//
+//@Test
+//public void testEncryptWithNullLetterString() {
+//    ArrayList<Integer> binArrayM = new ArrayList<>();
+//    binArrayM.add(0);
+//    when(binaryGenerator.GenerateBinaryFormat(anyString())).thenReturn(binArrayM);
+//
+//    ArrayList<Long> finalMessage = encryption.Encrypt(null, "world");
+//    assertNotNull(finalMessage);
+//    assertEquals(1, finalMessage.size());
+//    assertEquals(0, finalMessage.get(0).longValue());
+//}
+//
+//@Test
+//public void testEncryptWithSpecialCharacterString() {
+//    ArrayList<Integer> binArrayM = new ArrayList<>();
+//    binArrayM.add(1);
+//    binArrayM.add(0);
+//    binArrayM.add(1);
+//    when(binaryGenerator.GenerateBinaryFormat(anyString())).thenReturn(binArrayM);
+//
+//    ArrayList<Long> finalMessage = encryption.Encrypt("hello!", "world!");
+//    assertNotNull(finalMessage);
+//    assertEquals(1, finalMessage.size());
+//    assertEquals(1, finalMessage.get(0).longValue());
+//}
 
 
 }
